@@ -12,6 +12,7 @@
   "dependencies": {},
   "scripts": {
     "start": "node scripts/start.js",
-    "server": "node scripts/server.js"
+    "server": "node scripts/server.js",
+    "registry": "node scripts/registry.js"
   }
 }

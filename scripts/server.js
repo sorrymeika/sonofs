@@ -6,9 +6,11 @@ const { createMaster, createServer } = require('../lib/server');
 const cfg = {
     groupId: 1,
     serverId: 1,
-    rootId: 1,
     root: '/Users/sunlu/Desktop/workspace/nodejs/data',
-    port: 8124
+    port: 8124,
+    registry: {
+        port: 8123
+    }
 };
 
 if (cluster.isMaster) {
