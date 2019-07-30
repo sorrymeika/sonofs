@@ -1,5 +1,5 @@
 # sonofs
-sono nodejs file system
+sono nodejs distributed file system
 
 # mime
 
