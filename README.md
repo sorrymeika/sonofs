@@ -72,6 +72,7 @@ const { createClient } = require('sonofs');
 
 // 创建客户端
 const fsClient = createClient({
+    // 上传的临时文件存放位置
     tmpDir: '/data/tmp',
     registry: {
         port: 8123
