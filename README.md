@@ -72,6 +72,7 @@ const { createClient } = require('sonofs');
 
 // 创建客户端
 const fsClient = createClient({
+    tmpDir: '/data/tmp',
     registry: {
         port: 8123
     }
