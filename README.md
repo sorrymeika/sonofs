@@ -113,11 +113,14 @@ class UploadController extends Controller {
 
 ## server config
 
-`groupId` 服务分组id
-`serverId` 服务id，同一`serverId`只能分配给一个进程
-`root` 文件存储主目录，同一文件夹只能分配给一个进程
-`port` 端口号
-`[master]` 仅`slave`机需要配置，master的ip地址+端口号
+* `groupId` 服务分组id
+* `serverId` 服务id，同一`serverId`只能分配给一个进程
+* `root` 文件存储主目录，同一文件夹只能分配给一个进程
+* `port` 端口号
+* `[master]` 仅`slave`机需要配置，master的ip地址+端口号
+
+* 文件名格式: groupId+serverId+dir+subDir+bundle+mime+fileStart+fileSize
+* 文件初始化时会预先分配 1gb空间
 
 ## mime
 
