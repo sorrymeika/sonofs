@@ -94,7 +94,7 @@ class UploadController extends Controller {
         };
     }
 
-    // 访问文件
+    // 访问文件: /testGetFile?file=AA0000B0ABNX00Fjj
     async testGetFile() {
         const { ctx } = this;
         try {
@@ -128,3 +128,8 @@ class UploadController extends Controller {
 
 * `image/png` : `01`
 * `image/jpeg` : `02`
+* `image/gif` : `03`
+* `text/plain` : `04`
+* `text/html` : `05`
+* `application/octet-stream`: `06`
+
