@@ -11,7 +11,7 @@
     "network file system"
   ],
   "devDependencies": {
-    "eslint": "^6.1.0"
+    "eslint": "^6.2.2"
   },
   "dependencies": {},
   "scripts": {
