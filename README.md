@@ -5,6 +5,10 @@ sono nodejs distributed file system
 
 sonofs是一个轻量级、高性能的分布式文件系统。提供小文件合并、负载均衡、文件自动备份等功能
 
+master 可上传和获取
+
+slave 仅获取和同步，不可上传
+
 
 ## 如何使用
 
@@ -30,7 +34,7 @@ scripts/server.js
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
 
-const { startServerMaster, startServer } = require('sonofs');
+const { Server } = require('sonofs');
 
 const cfg = {
     // 服务分组id
@@ -49,7 +53,7 @@ const cfg = {
 };
 
 if (cluster.isMaster) {
-    startServerMaster(cfg, () => {
+    Server.start(cfg, () => {
         for (let i = 0; i < numCPUs; i++) {
             cluster.fork();
         }
@@ -58,7 +62,7 @@ if (cluster.isMaster) {
         console.log(`worker ${worker.process.pid} died`, code, signal);
     });
 } else {
-    startServer(cfg);
+    Server.childThread(cfg);
 }
 ```
 

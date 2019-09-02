@@ -17,6 +17,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "server": "node scripts/server.js",
+    "slave": "node scripts/slave.js",
     "registry": "node scripts/registry.js"
   }
 }

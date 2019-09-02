@@ -1,8 +1,10 @@
-const { createMaster, createServer } = require('./lib/server');
+const { startServer, startChildThread } = require('./lib/server');
 const { createClient } = require('./lib/client');
 const { startRegistry } = require('./lib/registry');
 
-exports.startServerMaster = createMaster;
-exports.startServer = createServer;
+exports.Server = {
+    start: startServer,
+    childThread: startChildThread
+};
 exports.createClient = createClient;
 exports.startRegistry = startRegistry;

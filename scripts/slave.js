@@ -6,8 +6,9 @@ const { startServer, startChildThread } = require('../lib/server');
 const cfg = {
     groupId: 1,
     serverId: 1,
-    root: '/Users/sunlu/Desktop/workspace/nodejs/data',
-    port: 8124,
+    root: '/Users/sunlu/Desktop/workspace/nodejs/data1',
+    port: 8125,
+    isSlave: true,
     registry: {
         port: 8123
     }
