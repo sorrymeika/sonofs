@@ -66,6 +66,47 @@ if (cluster.isMaster) {
 }
 ```
 
+### 启动slave文件服务
+
+```js
+const cluster = require('cluster');
+const numCPUs = require('os').cpus().length;
+
+const { Server } = require('sonofs');
+
+// 配置大部分与server一致
+const cfg = {
+    // 服务分组id
+    groupId: 1,
+    // 服务id，同一`serverId`只能分配给一个进程
+    serverId: 1,
+    // 文件存储主目录，同一文件夹只能分配给一个进程
+    root: '/data/upload1',
+    // 表示是slave服务
+    isSlave: true,
+    // 服务器端口号
+    port: 8125,
+    // 注册中心配置，必须与master注册到同一注册中心
+    registry: {
+        host: '127.0.0.1',
+        port: 8123
+    }
+};
+
+if (cluster.isMaster) {
+    Server.start(cfg, () => {
+        for (let i = 0; i < numCPUs; i++) {
+            cluster.fork();
+        }
+    });
+    cluster.on('exit', (worker, code, signal) => {
+        console.log(`worker ${worker.process.pid} died`, code, signal);
+    });
+} else {
+    Server.childThread(cfg);
+}
+```
+
 ### 上传/访问文件
 
 client.js
