@@ -15,9 +15,9 @@
   },
   "dependencies": {},
   "scripts": {
-    "start": "node scripts/start.js",
-    "server": "node scripts/server.js",
-    "slave": "node scripts/slave.js",
-    "registry": "node scripts/registry.js"
+    "start": "npx supervisor scripts/start.js",
+    "server": "npx supervisor scripts/server.js",
+    "slave": "npx supervisor scripts/slave.js",
+    "registry": "npx supervisor scripts/registry.js"
   }
 }
