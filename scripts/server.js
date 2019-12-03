@@ -1,7 +1,7 @@
 const cluster = require('cluster');
 // const numCPUs = require('os').cpus().length;
 
-const { startServer, startChildThread } = require('../lib/server');
+const { startMaster, startWorker } = require('../lib/server');
 
 const cfg = {
     groupId: 1,
@@ -14,7 +14,7 @@ const cfg = {
 };
 
 if (cluster.isMaster) {
-    startServer(cfg, () => {
+    startMaster(cfg, () => {
         for (let i = 0; i < 2; i++) {
             cluster.fork();
         }
@@ -23,5 +23,5 @@ if (cluster.isMaster) {
         console.log(`worker ${worker.process.pid} died`, code, signal);
     });
 } else {
-    startChildThread(cfg);
+    startWorker(cfg);
 }
