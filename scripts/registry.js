@@ -1,6 +1,5 @@
-const { startRegistry } = require('../lib/registry');
+const sonofs = require('../');
 
-startRegistry({
+sonofs.startRegistryServer({
     port: 8123
-}, () => {
 });
